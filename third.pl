@@ -122,16 +122,29 @@ shift_list([Line|Rest_lines],
 shift_list([], _, Result, Result):-!.
 
 
+do_all_shifts(List):-
+    do_all_shifts(List, 1).
+
+do_all_shifts(List, Shift_size):-
+    Shift_size < 26,
+    shift_list(List, Shift_size, Result_list),
+    write_list_str(Result_list),
+    writeln('========================================================'),
+    New_shift_size is Shift_size + 1,
+    do_all_shifts(List, New_shift_size).
+
+do_all_shifts(_,Shift_size):-Shift_size >= 26.
 
 run:-
     see('C:/Users/Tenzou/Documents/Prolog/sm/third test read.txt'),
     read_list_str(List),
     seen,
-    shift_list(List,1,Res),
+    % shift_list(List,1,Res),
     tell('C:/Users/Tenzou/Documents/Prolog/sm/third test write.txt'),
     %write_list_str(List),
     % writeln(List),
-    write_list_str(Res),
+    % write_list_str(Res),
+    do_all_shifts(List),
     told.
 
 
