@@ -46,10 +46,42 @@ write_list_str([H|T]):-
     write_list_str(T).
 
 
+% a=97,....
+% z=122
+% A=65,....
+% Z=90
 shift_char(Old_char,
            Shift_size,
            New_char
           ):-
+    Old_char >= 97,
+    Old_char =< 122 + Shift_size,
+    New_char is Old_char + Shift_size.
+
+shift_char(Old_char,
+           Shift_size,
+           New_char
+          ):-
+    Old_char >= 65,
+    Old_char =< 90 + Shift_size,
+    New_char is Old_char + Shift_size.
+
+shift_char(Old_char,
+           Shift_size,
+           New_char
+          ):-
+    Old_char > 90 + Shift_size,
+    Old_char =< 90,
+    Old_char < 97,
+    New_char is Old_char + Shift_size - 26.
+
+shift_char(Old_char,
+           Shift_size,
+           New_char
+          ):-
+    Old_char > 122 + Shift_size,
+    Old_char =< 122,
+    New_char is Old_char + Shift_size - 26.
 
 
 
@@ -95,8 +127,21 @@ run:-
     see('C:/Users/Tenzou/Documents/Prolog/sm/third test read.txt'),
     read_list_str(List),
     seen,
+    shift_list(List,1,Res),
     tell('C:/Users/Tenzou/Documents/Prolog/sm/third test write.txt'),
-    write_list_str(List).
+    %write_list_str(List),
+    % writeln(List),
+    write_list_str(Res),
     told.
+
+
+
+
+
+
+
+
+
+
 
 
