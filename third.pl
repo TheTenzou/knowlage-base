@@ -55,7 +55,7 @@ shift_char(Old_char,
            New_char
           ):-
     Old_char >= 97,
-    Old_char =< 122 + Shift_size,
+    Old_char =< 122 - Shift_size,
     New_char is Old_char + Shift_size.
 
 shift_char(Old_char,
@@ -63,14 +63,14 @@ shift_char(Old_char,
            New_char
           ):-
     Old_char >= 65,
-    Old_char =< 90 + Shift_size,
+    Old_char =< 90 - Shift_size,
     New_char is Old_char + Shift_size.
 
 shift_char(Old_char,
            Shift_size,
            New_char
           ):-
-    Old_char > 90 + Shift_size,
+    Old_char > 90 - Shift_size,
     Old_char =< 90,
     Old_char < 97,
     New_char is Old_char + Shift_size - 26.
@@ -79,7 +79,7 @@ shift_char(Old_char,
            Shift_size,
            New_char
           ):-
-    Old_char > 122 + Shift_size,
+    Old_char > 122 - Shift_size,
     Old_char =< 122,
     New_char is Old_char + Shift_size - 26.
 
