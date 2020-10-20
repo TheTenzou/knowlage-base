@@ -9,10 +9,14 @@ in_list([El|_],El).
 in_list([_|T],El):-in_list(T,El).
 
 run:-
-    combinations([a,b,c,d,e,f],List),
     tell('C:/Users/Tenzou/Documents/Prolog/sm/fifth answer.txt'),
-    generate_words(List,8,[]),
+    generate_all_words,
     told.
+
+generate_all_words:-
+    combinations([a,b,c,d,e,f],List),
+    generate_words(List,8,[]).
+
 
 generate_words(_,0,Word):-
     write_str(Word),nl,!,fail.
