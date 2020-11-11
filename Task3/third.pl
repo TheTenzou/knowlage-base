@@ -136,11 +136,11 @@ do_all_shifts(List, Shift_size):-
 do_all_shifts(_,Shift_size):-Shift_size >= 26.
 
 run:-
-    see('C:/Users/Tenzou/Documents/Prolog/sm/third test read.txt'),
+    see('C:/Users/Tenzou/Documents/Prolog/sm/Task3/third test read.txt'),
     read_list_str(List),
     seen,
     % shift_list(List,1,Res),
-    tell('C:/Users/Tenzou/Documents/Prolog/sm/third test write.txt'),
+    tell('C:/Users/Tenzou/Documents/Prolog/sm/Task3/third test write.txt'),
     %write_list_str(List),
     % writeln(List),
     % write_list_str(Res),
