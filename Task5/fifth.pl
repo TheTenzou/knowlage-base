@@ -9,7 +9,7 @@ in_list([El|_],El).
 in_list([_|T],El):-in_list(T,El).
 
 run:-
-    tell('C:/Users/Tenzou/Documents/Prolog/sm/Task5/fifth answer9.txt'),
+    tell('C:/Users/Tenzou/Documents/Prolog/sm/Task5/fifth answer12.txt'),
     generate_all_words,
     told.
 
