@@ -11,7 +11,8 @@ write_q1(X,Y):-
     (q1(X,Y) -> (
          nl,
          write(X),
-         nl,write(Y),
+         nl,
+         write(Y),
          write("."),
          retract(q1(X,Y)));
     X=nil,
@@ -27,6 +28,7 @@ read_q1(_):-
     read_q1(Sym).
 
 
+
 save_q1:-
     tell('C:/Users/Tenzou/Documents/Prolog/sm/Task7 Akinator/predicats/q1.txt'),
     write_q1(X,_),
@@ -38,6 +40,43 @@ load_q1:-
     get0(Sym),
     read_q1(Sym),
     seen.
+
+
+write_q2(X,Y):-
+    repeat,
+    (q2(X,Y) -> (
+         nl,
+         write(X),
+         nl,
+         write(Y),
+         write("."),
+         retract(q2(X,Y)));
+    X=nil,
+    Y=nil).
+
+read_q2(-1):-!.
+read_q2(_):-
+    read_str(Lang),
+    name(X,Lang),
+    read(Y),
+    asserta(q2(X,Y)),
+    get0(Sym),
+    read_q2(Sym).
+
+
+
+save_q2:-
+    tell('C:/Users/Tenzou/Documents/Prolog/sm/Task7 Akinator/predicats/q2.txt'),
+    write_q2(X,_),
+    X=nil,
+    told.
+
+load_q2:-
+    see('C:/Users/Tenzou/Documents/Prolog/sm/Task7 Akinator/predicats/q2.txt'),
+    get0(Sym),
+    read_q2(Sym),
+    seen.
+
 
 question1(X1):-
     write("Question 1?"),nl,
@@ -56,22 +95,20 @@ run:-
     load_q1,
     question1(X1),
     %question2(X2),
-    q1(X,X1),
+    (   q1(X,X1) ->
     %q2(X,X2),
-    write(X).
+    write(X);
 
+        writeln("Write your answer:"),
+        writeln("test"),
+        read_str(Answer),
+        write(Answer),
+        name(Name,Answer),
+        asserta(q1(Name,X1))
 
+    ).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+test:-
+    write("test: "),
+    read_str(Test).
+    %write(Test).
