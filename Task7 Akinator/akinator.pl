@@ -93,22 +93,40 @@ question2(X2):-
 
 run:-
     load_q1,
+    load_q2,
     question1(X1),
-    %question2(X2),
-    (   q1(X,X1) ->
-    %q2(X,X2),
+    question2(X2),
+    get0(_),
+    (q1(X,X1),q2(X,X2) ->
     write(X);
 
-        writeln("Write your answer:"),
-        writeln("test"),
-        read_str(Answer),
-        write(Answer),
-        name(Name,Answer),
-        asserta(q1(Name,X1))
+    writeln("Write your answer:"),
+    read_str(Answer),
+    name(Name,Answer),
+    asserta(q1(Name,X1)),
+    asserta(q2(Name,X2)),
+    save_q1,
+    save_q2).
 
-    ).
 
-test:-
-    write("test: "),
-    read_str(Test).
-    %write(Test).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
