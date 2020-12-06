@@ -2,7 +2,7 @@ read_str(A):-
     get0(X),
     r_str(X,A,[]).
 
-del_1st([H|T],T).
+del_1st([_|T],T).
 
 r_str(10,A,A):-!.
 r_str(X,A,B):-
@@ -15,11 +15,12 @@ r_str(X,A,B):-
 get_graph_edges(V,E):-
     get_V(V),
     write(V),nl,
-    write("Edges"),ln,
+    write("Edges"),nl,
     get_edges(V,E),
     write(E).
 
 get_V(V):-
+    write("Vextexes count"),nl,
     read(N),
     write("Vertexes"),nl,
     N1 is N+1,
@@ -39,7 +40,7 @@ get_edges(V,E):-
     get0(_),
     get_edges(V,E,[],M,0).
 
-get_edges(V,E,E,M,M):-!.
+get_edges(_,E,E,M,M):-!.
 
 get_edges(V,E,Edges,M,Count):-
     get_edge(V,Edge),
@@ -51,12 +52,13 @@ get_edges(V,E,Edges,M,Count):-
 check_vertex([V1|_],V1):-!.
 check_vertex([_|T],V1):-check_vertex(T,V1).
 
-get_edge(V,[V1,V2]):-
+get_edge(V,[V1,V2, Weight]):-
     write("Edge"),nl,
     read_str(X),
     name(V1,X),
     check_vertex(V,V1),
     read_str(Y),
     name(V2,Y),
-    check_vertex(V,V2).
-
+    check_vertex(V,V2),
+    write("weight"),nl,
+    read(Weight),true.
