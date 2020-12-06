@@ -83,6 +83,18 @@ sort_edges([],Y,Y).
 sort_edges([X|L],Y1,Y3):- insert(X,Y1,Y2), sort_edges(L,Y2,Y3).
 
 
+search(X1,X2,Y,_):- member([X1,X2],Y).
+
+search(X1,X2,Y,_):- member([X2,X1],Y).
+
+search(X1,X2,Y,Z):- member([X1,X3],Y),
+not(member(X3,Z)), search(X3,X2,Y,[X3|Z]).
+
+search(X1,X2,Y,Z):- member([X3,X1],Y),
+not(member(X3,Z)), search(X3,X2,Y,[X3|Z]).
+
+
+
 
 
 
