@@ -1,3 +1,6 @@
+%=======================================================================
+%Graph input
+
 read_str(A):-
     get0(X),
     r_str(X,A,[]).
@@ -63,6 +66,21 @@ get_edge(V,[V1,V2, Weight]):-
     write("weight"),nl,
     read(Weight),get0(_).
 
+%=======================================================================
+%Computation
+
+insert(X,[],[X]).
+
+insert([X1,X2,R1],
+       [[Y1,Y2,R2]|L],
+       [[X1,X2,R1]|[[Y1,Y2,R2]|L]]):- R1<R2,!.
+
+insert(X,[Y|L1],[Y|L2]):- insert(X,L1,L2).
+
+
+sort_edges([],Y,Y).
+
+sort_edges([X|L],Y1,Y3):- insert(X,Y1,Y2), sort_edges(L,Y2,Y3).
 
 
 
