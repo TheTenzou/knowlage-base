@@ -61,4 +61,24 @@ get_edge(V,[V1,V2, Weight]):-
     name(V2,Y),
     check_vertex(V,V2),
     write("weight"),nl,
-    read(Weight),true.
+    read(Weight),get0(_).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
