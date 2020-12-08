@@ -37,6 +37,7 @@ public class Akinator implements Mediator {
     @Override
     public void setFirstAnswer(int answer) {
         System.out.println("First " + answer);
+        character.setFirstQuestion(answer);
     }
 
     @Override

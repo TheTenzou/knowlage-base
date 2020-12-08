@@ -15,11 +15,13 @@ public class StartPanel implements Component, ActionListener {
 
     public StartPanel() {
 
+        label.setFont(new Font("Serif", Font.PLAIN, 16));
         Dimension labelSize = label.getPreferredSize();
         label.setBounds(400,200,labelSize.width,labelSize.height);
 //        label.setOpaque(true);
 //        label.setBackground(Color.LIGHT_GRAY);
 
+        button.setFont(new Font("Serif", Font.PLAIN, 14));
         Dimension buttonSize = button.getPreferredSize();
         button.setBounds(400,400, buttonSize.width, buttonSize.height);
         button.setFocusPainted(false);

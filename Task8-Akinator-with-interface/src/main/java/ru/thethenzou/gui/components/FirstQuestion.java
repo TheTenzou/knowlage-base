@@ -17,23 +17,24 @@ public class FirstQuestion implements Component, ActionListener {
 
     public FirstQuestion() {
 
+        label.setFont(new Font("Serif", Font.PLAIN, 16));
         Dimension labelSize = label.getPreferredSize();
-        label.setBounds(400,200,labelSize.width,labelSize.height);
+        label.setBounds(350,300,labelSize.width,labelSize.height);
 
         Dimension buttonSize = answerOneButton.getPreferredSize();
-        answerOneButton.setBounds(400,250, buttonSize.width, buttonSize.height);
+        answerOneButton.setBounds(400,340, buttonSize.width, buttonSize.height);
         answerOneButton.setFocusPainted(false);
         answerOneButton.setActionCommand("1");
         answerOneButton.addActionListener(this);
 
         Dimension buttonSize1 = answerOneButton.getPreferredSize();
-        answerSecondButton.setBounds(400,300, buttonSize1.width, buttonSize1.height);
+        answerSecondButton.setBounds(400,380, buttonSize1.width, buttonSize1.height);
         answerSecondButton.setFocusPainted(false);
         answerSecondButton.setActionCommand("2");
         answerSecondButton.addActionListener(this);
 
         Dimension buttonSize2 = answerOneButton.getPreferredSize();
-        answerThirdButton.setBounds(400,350, buttonSize2.width, buttonSize2.height);
+        answerThirdButton.setBounds(400,420, buttonSize2.width, buttonSize2.height);
         answerThirdButton.setFocusPainted(false);
         answerThirdButton.setActionCommand("3");
         answerThirdButton.addActionListener(this);
