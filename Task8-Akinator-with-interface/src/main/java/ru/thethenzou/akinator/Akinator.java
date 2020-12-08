@@ -1,7 +1,12 @@
 package ru.thethenzou.akinator;
 
+import org.jpl7.Integer;
 import org.jpl7.Query;
+import org.jpl7.Term;
+import org.jpl7.Variable;
+import ru.thethenzou.character.Character;
 
+import java.util.Optional;
 import java.util.Properties;
 
 /**
@@ -43,5 +48,36 @@ public class Akinator {
         loadQ10.hasSolution();
         Query loadQ11 = new Query("load_q11('" + properties.getProperty("q11") + "')");
         loadQ11.hasSolution();
+    }
+
+    /**
+     * Мето позволяет задать вопрос прологу.
+     * @param character персонаж
+     * @return optional с персонажем если он есть, а если нет то пустой
+     */
+    public Optional<Character> guess(Character character) {
+        Variable characterName = new Variable("Name");
+        Query guess = new Query("q", new Term[] {
+                characterName,
+                new Integer(character.getFirstQuestion()),
+                new Integer(character.getSecondQuestion()),
+                new Integer(character.getForthQuestion()),
+                new Integer(character.getFifthQuestion()),
+                new Integer(character.getSixthQuestion()),
+                new Integer(character.getSeventhQuestion()),
+                new Integer(character.getEighthQuestion()),
+                new Integer(character.getNinethQuestion()),
+                new Integer(character.getTenthQuestion()),
+                new Integer(character.getElevenQuestion())
+        });
+
+        Optional<Character> answer;
+        if (guess.hasSolution()) {
+            character.setName(characterName.name());
+            answer = Optional.of(character);
+        } else {
+            answer = Optional.empty();
+        }
+        return answer;
     }
 }

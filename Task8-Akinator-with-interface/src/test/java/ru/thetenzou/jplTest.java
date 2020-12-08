@@ -16,13 +16,13 @@ public class jplTest {
         Query q2 = new Query("load");
         System.out.println(q2.hasSolution());
         Variable X = new Variable("X");
-        Query q3 = new Query("q1", new Term[] {X,new Integer(5)});
+        Query q3 = new Query("q1", new Term[] {X,new Integer(1)});
 //        Map<String, Term>[] solutions = q3.allSolutions();
 //        for (Map<String, Term> solution : solutions) {
 //            System.out.println(solution.get("X"));
 //        }
         System.out.println("no solution " + q3.hasSolution());
-//        System.out.println(q3.oneSolution().get("X"));
+        System.out.println(q3.oneSolution().get("X").name());
         Query q4 = new Query("assert", new Term[] {
                 new Atom("test"),
                 new Integer(1),
