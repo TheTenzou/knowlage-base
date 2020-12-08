@@ -70,10 +70,9 @@ public class Akinator {
                 new Integer(character.getTenthQuestion()),
                 new Integer(character.getElevenQuestion())
         });
-
         Optional<Character> answer;
         if (guess.hasSolution()) {
-            character.setName(characterName.name());
+            character.setName(guess.oneSolution().get("Name").name());
             answer = Optional.of(character);
         } else {
             answer = Optional.empty();

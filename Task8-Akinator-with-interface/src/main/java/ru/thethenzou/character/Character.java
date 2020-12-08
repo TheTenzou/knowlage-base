@@ -1,5 +1,7 @@
 package ru.thethenzou.character;
 
+import java.util.Objects;
+
 /**
  * Персонаж.
  */
@@ -58,6 +60,40 @@ public class Character {
      * Eleventh question.
      */
     int elevenQuestion;
+
+
+    public Character(String name, int firstQuestion, int secondQuestion, int forthQuestion, int fifthQuestion,
+                     int sixthQuestion, int seventhQuestion, int eighthQuestion, int ninethQuestion,
+                     int tenthQuestion, int elevenQuestion) {
+        this.name = name;
+        this.firstQuestion = firstQuestion;
+        this.secondQuestion = secondQuestion;
+        this.forthQuestion = forthQuestion;
+        this.fifthQuestion = fifthQuestion;
+        this.sixthQuestion = sixthQuestion;
+        this.seventhQuestion = seventhQuestion;
+        this.eighthQuestion = eighthQuestion;
+        this.ninethQuestion = ninethQuestion;
+        this.tenthQuestion = tenthQuestion;
+        this.elevenQuestion = elevenQuestion;
+    }
+
+    public Character(int firstQuestion, int secondQuestion, int forthQuestion, int fifthQuestion,
+                     int sixthQuestion, int seventhQuestion, int eighthQuestion, int ninethQuestion,
+                     int tenthQuestion, int elevenQuestion) {
+        this.firstQuestion = firstQuestion;
+        this.secondQuestion = secondQuestion;
+        this.forthQuestion = forthQuestion;
+        this.fifthQuestion = fifthQuestion;
+        this.sixthQuestion = sixthQuestion;
+        this.seventhQuestion = seventhQuestion;
+        this.eighthQuestion = eighthQuestion;
+        this.ninethQuestion = ninethQuestion;
+        this.tenthQuestion = tenthQuestion;
+        this.elevenQuestion = elevenQuestion;
+    }
+
+    public Character() { }
 
     public String getName() {
         return name;
@@ -145,5 +181,29 @@ public class Character {
 
     public void setElevenQuestion(int elevenQuestion) {
         this.elevenQuestion = elevenQuestion;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Character character = (Character) o;
+        return firstQuestion == character.firstQuestion &&
+                secondQuestion == character.secondQuestion &&
+                forthQuestion == character.forthQuestion &&
+                fifthQuestion == character.fifthQuestion &&
+                sixthQuestion == character.sixthQuestion &&
+                seventhQuestion == character.seventhQuestion &&
+                eighthQuestion == character.eighthQuestion &&
+                ninethQuestion == character.ninethQuestion &&
+                tenthQuestion == character.tenthQuestion &&
+                elevenQuestion == character.elevenQuestion &&
+                Objects.equals(name, character.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, firstQuestion, secondQuestion, forthQuestion, fifthQuestion, sixthQuestion,
+                seventhQuestion, eighthQuestion, ninethQuestion, tenthQuestion, elevenQuestion);
     }
 }
