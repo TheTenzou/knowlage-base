@@ -8,17 +8,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SecondQuestion implements Component, ActionListener {
+public class FifthQuestion implements Component, ActionListener {
 
     private Mediator mediator;
 
     JLabel backGround = new JLabel();
-    JLabel label = new JLabel("Ваш персонаж человек? ");
+    JLabel label = new JLabel("Ваш персонаж владеет магией? ");
     JButton answerOneButton = new JButton("Да");
     JButton answerSecondButton = new JButton("Нет");
     JButton answerThirdButton = new JButton("Не известно");
 
-    public SecondQuestion() {
+    public FifthQuestion() {
 
         backGround.setBounds(320, 400, 250, 60);
         backGround.setOpaque(true);
@@ -48,6 +48,7 @@ public class SecondQuestion implements Component, ActionListener {
     public void setMediator(Mediator mediator) {
         this.mediator = mediator;
     }
+
 
     @Override
     public void setPenel(JPanel panel) {
@@ -81,13 +82,13 @@ public class SecondQuestion implements Component, ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "1":
-                mediator.setAnswer(2, 1);
+                mediator.setAnswer(5, 1);
                 break;
             case "2":
-                mediator.setAnswer(2, 2);
+                mediator.setAnswer(5, 2);
                 break;
             case "3":
-                mediator.setAnswer(2, 3);
+                mediator.setAnswer(5, 3);
                 break;
         }
         mediator.nextPage();

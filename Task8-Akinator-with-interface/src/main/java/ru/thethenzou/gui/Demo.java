@@ -1,5 +1,6 @@
 package ru.thethenzou.gui;
 
+import ru.thethenzou.gui.components.questions.FifthQuestion;
 import ru.thethenzou.gui.components.questions.FirstQuestion;
 import ru.thethenzou.gui.components.questions.FoursQuestion;
 import ru.thethenzou.gui.components.questions.SecondQuestion;
@@ -17,6 +18,7 @@ public class Demo {
         mediator.registerComponent(new FirstQuestion());
         mediator.registerComponent(new SecondQuestion());
         mediator.registerComponent(new FoursQuestion());
+        mediator.registerComponent(new FifthQuestion());
 
         mediator.createGUI();
     }

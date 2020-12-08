@@ -50,11 +50,6 @@ public class FirstQuestion implements Component, ActionListener {
     }
 
     @Override
-    public String getName() {
-        return "FirstQuestion";
-    }
-
-    @Override
     public void setPenel(JPanel panel) {
         panel.add(label);
         panel.add(answerOneButton);

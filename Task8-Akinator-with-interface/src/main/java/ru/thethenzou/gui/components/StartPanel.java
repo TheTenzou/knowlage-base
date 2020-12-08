@@ -39,11 +39,6 @@ public class StartPanel implements Component, ActionListener {
     }
 
     @Override
-    public String getName() {
-        return "StartPenal";
-    }
-
-    @Override
     public void setPenel(JPanel panel) {
         panel.add(label);
         panel.add(button);

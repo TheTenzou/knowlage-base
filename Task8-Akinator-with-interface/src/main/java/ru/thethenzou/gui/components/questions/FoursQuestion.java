@@ -50,11 +50,6 @@ public class FoursQuestion implements Component, ActionListener {
     }
 
     @Override
-    public String getName() {
-       return "FoursQuestion";
-    }
-
-    @Override
     public void setPenel(JPanel panel) {
         panel.add(label);
         panel.add(answerOneButton);
