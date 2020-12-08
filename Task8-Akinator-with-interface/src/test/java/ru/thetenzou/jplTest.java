@@ -1,13 +1,14 @@
-package ru.thethenzou;
+package ru.thetenzou;
 
 import org.jpl7.*;
 import org.jpl7.Integer;
+import org.junit.Test;
 
-import java.util.Map;
 
+public class jplTest {
 
-public class Test {
-    public static void main(String[] args) {
+    @Test
+    public void testJpl() {
         JPL.init();
         String s = "consult('E:/My_Progs/knowlage-base/Task8-Akinator-with-interface/src/main/prolog/akinator.pl')";
         Query q1 = new Query(s);
