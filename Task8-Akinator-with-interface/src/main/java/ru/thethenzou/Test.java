@@ -14,12 +14,31 @@ public class Test {
         System.out.println(q1.hasSolution());
         Query q2 = new Query("load");
         System.out.println(q2.hasSolution());
-        Variable X = new Variable("X");
-        Query q3 = new Query("q1", new Term[] {X,new Integer(1)});
-        Map<String, Term>[] solutions = q3.allSolutions();
-        for (Map<String, Term> solution : solutions) {
-            System.out.println(solution.get("X"));
-        }
+//        Variable X = new Variable("X");
+//        Query q3 = new Query("q1", new Term[] {X,new Integer(1)});
+//        Map<String, Term>[] solutions = q3.allSolutions();
+//        for (Map<String, Term> solution : solutions) {
+//            System.out.println(solution.get("X"));
+//        }
 //        System.out.println(q3.oneSolution().get("X"));
+        Query q4 = new Query("assert", new Term[] {
+                new Atom("test"),
+                new Integer(1),
+                new Integer(1),
+                new Integer(1),
+                new Integer(1),
+                new Integer(1),
+                new Integer(1),
+                new Integer(1),
+                new Integer(1),
+                new Integer(1),
+                new Integer(1)
+        });
+        System.out.println(q4.hasSolution());
+        Variable X = new Variable("X");
+        Query q5 = new Query("q1", new Term[] {new Atom("test"), X});
+        System.out.println(q5.oneSolution().get("X"));
+        Query q6 = new Query("save");
+        System.out.println(q6.hasSolution());
     }
 }
