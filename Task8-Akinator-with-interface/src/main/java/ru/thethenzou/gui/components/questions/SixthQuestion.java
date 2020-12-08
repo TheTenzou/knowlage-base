@@ -8,17 +8,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FoursQuestion implements Component, ActionListener {
+public class SixthQuestion implements Component, ActionListener {
 
     private Mediator mediator;
 
     JLabel backGround = new JLabel();
-    JLabel label = new JLabel("Ваш персонаж умеет летать?");
+    JLabel label = new JLabel("Владеет ли ваш персонаж");
+    JLabel label2 = new JLabel("боевыми искусствами?");
     JButton answerOneButton = new JButton("Да");
     JButton answerSecondButton = new JButton("Нет");
     JButton answerThirdButton = new JButton("Не известно");
 
-    public FoursQuestion() {
+    public SixthQuestion() {
 
         backGround.setBounds(320, 400, 250, 60);
         backGround.setOpaque(true);
@@ -26,7 +27,10 @@ public class FoursQuestion implements Component, ActionListener {
 
         label.setFont(new Font("Serif", Font.PLAIN, 16));
         Dimension labelSize = label.getPreferredSize();
-        label.setBounds(445 - labelSize.width/2,420,labelSize.width,labelSize.height);
+        label.setBounds(445 - labelSize.width/2,410,labelSize.width,labelSize.height);
+        label2.setFont(new Font("Serif", Font.PLAIN, 16));
+        Dimension labelSize2 = label2.getPreferredSize();
+        label2.setBounds(445 - labelSize2.width/2,430,labelSize.width,labelSize2.height);
 
         answerOneButton.setBounds(320,470, 250, 30);
         answerOneButton.setFocusPainted(false);
@@ -49,9 +53,11 @@ public class FoursQuestion implements Component, ActionListener {
         this.mediator = mediator;
     }
 
+
     @Override
     public void setPenel(JPanel panel) {
         panel.add(label);
+        panel.add(label2);
         panel.add(answerOneButton);
         panel.add(answerSecondButton);
         panel.add(answerThirdButton);
@@ -62,6 +68,7 @@ public class FoursQuestion implements Component, ActionListener {
     public void show() {
         backGround.setVisible(true);
         label.setVisible(true);
+        label2.setVisible(true);
         answerOneButton.setVisible(true);
         answerSecondButton.setVisible(true);
         answerThirdButton.setVisible(true);
@@ -71,6 +78,7 @@ public class FoursQuestion implements Component, ActionListener {
     public void hide() {
         backGround.setVisible(false);
         label.setVisible(false);
+        label2.setVisible(false);
         answerOneButton.setVisible(false);
         answerSecondButton.setVisible(false);
         answerThirdButton.setVisible(false);
@@ -81,13 +89,13 @@ public class FoursQuestion implements Component, ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "1":
-                mediator.setAnswer(4, 1);
+                mediator.setAnswer(6, 1);
                 break;
             case "2":
-                mediator.setAnswer(4, 2);
+                mediator.setAnswer(6, 2);
                 break;
             case "3":
-                mediator.setAnswer(4, 3);
+                mediator.setAnswer(6, 3);
                 break;
         }
         mediator.nextPage();

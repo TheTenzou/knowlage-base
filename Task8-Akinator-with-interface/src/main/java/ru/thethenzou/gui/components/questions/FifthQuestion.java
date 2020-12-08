@@ -26,7 +26,7 @@ public class FifthQuestion implements Component, ActionListener {
 
         label.setFont(new Font("Serif", Font.PLAIN, 16));
         Dimension labelSize = label.getPreferredSize();
-        label.setBounds(350,420,labelSize.width,labelSize.height);
+        label.setBounds(445 - labelSize.width/2,420,labelSize.width,labelSize.height);
 
         answerOneButton.setBounds(320,470, 250, 30);
         answerOneButton.setFocusPainted(false);
