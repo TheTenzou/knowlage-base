@@ -1,11 +1,10 @@
 package ru.thethenzou.akinator;
 
+import org.jpl7.*;
 import org.jpl7.Integer;
-import org.jpl7.Query;
-import org.jpl7.Term;
-import org.jpl7.Variable;
 import ru.thethenzou.character.Character;
 
+import java.util.Map;
 import java.util.Optional;
 import java.util.Properties;
 
@@ -28,6 +27,10 @@ public class Akinator {
         this.properties = properties;
         Query consult = new Query("consult('" + properties.getProperty("prolog.path") + "')");
         consult.hasMoreSolutions();
+        loadPredicats();
+    }
+
+    private void loadPredicats() {
         Query loadQ1 = new Query("load_q1('" + properties.getProperty("q01") + "')");
         loadQ1.hasSolution();
         Query loadQ2 = new Query("load_q2('" + properties.getProperty("q02") + "')");
@@ -70,6 +73,7 @@ public class Akinator {
                 new Integer(character.getTenthQuestion()),
                 new Integer(character.getElevenQuestion())
         });
+
         Optional<Character> answer;
         if (guess.hasSolution()) {
             character.setName(guess.oneSolution().get("Name").name());
@@ -78,5 +82,45 @@ public class Akinator {
             answer = Optional.empty();
         }
         return answer;
+    }
+
+    public void save(Character character) {
+        Query guess = new Query("assert", new Term[] {
+                new Atom(character.getName()),
+                new Integer(character.getFirstQuestion()),
+                new Integer(character.getSecondQuestion()),
+                new Integer(character.getForthQuestion()),
+                new Integer(character.getFifthQuestion()),
+                new Integer(character.getSixthQuestion()),
+                new Integer(character.getSeventhQuestion()),
+                new Integer(character.getEighthQuestion()),
+                new Integer(character.getNinethQuestion()),
+                new Integer(character.getTenthQuestion()),
+                new Integer(character.getElevenQuestion())
+        });
+        guess.hasSolution();
+
+        Query saveQ1 = new Query("save_q1('" + properties.getProperty("q01") + "')");
+        saveQ1.hasSolution();
+        Query saveQ2 = new Query("save_q2('" + properties.getProperty("q02") + "')");
+        saveQ2.hasSolution();
+        Query saveQ4 = new Query("save_q4('" + properties.getProperty("q04") + "')");
+        saveQ4.hasSolution();
+        Query saveQ5 = new Query("save_q5('" + properties.getProperty("q05") + "')");
+        saveQ5.hasSolution();
+        Query saveQ6 = new Query("save_q6('" + properties.getProperty("q06") + "')");
+        saveQ6.hasSolution();
+        Query saveQ7 = new Query("save_q7('" + properties.getProperty("q07") + "')");
+        saveQ7.hasSolution();
+        Query saveQ8 = new Query("save_q8('" + properties.getProperty("q08") + "')");
+        saveQ8.hasSolution();
+        Query saveQ9 = new Query("save_q9('" + properties.getProperty("q09") + "')");
+        saveQ9.hasSolution();
+        Query saveQ10 = new Query("save_q10('" + properties.getProperty("q10") + "')");
+        saveQ10.hasSolution();
+        Query saveQ11 = new Query("save_q11('" + properties.getProperty("q11") + "')");
+        saveQ11.hasSolution();
+        
+        loadPredicats();
     }
 }
