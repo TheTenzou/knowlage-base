@@ -1,5 +1,6 @@
-package ru.thethenzou.gui.components;
+package ru.thethenzou.gui.components.questions;
 
+import ru.thethenzou.gui.components.Component;
 import ru.thethenzou.gui.mediator.Mediator;
 
 import javax.swing.*;
@@ -21,23 +22,23 @@ public class FirstQuestion implements Component, ActionListener {
 
         backGround.setBounds(320, 400, 250, 60);
         backGround.setOpaque(true);
-        backGround.setBackground(new Color(250,183,60));
+        backGround.setBackground(new Color(250, 183, 60));
 
         label.setFont(new Font("Serif", Font.PLAIN, 16));
         Dimension labelSize = label.getPreferredSize();
-        label.setBounds(350,420,labelSize.width,labelSize.height);
+        label.setBounds(350, 420, labelSize.width, labelSize.height);
 
-        answerOneButton.setBounds(320,470, 250, 30);
+        answerOneButton.setBounds(320, 470, 250, 30);
         answerOneButton.setFocusPainted(false);
         answerOneButton.setActionCommand("1");
         answerOneButton.addActionListener(this);
 
-        answerSecondButton.setBounds(320,510, 250, 30);
+        answerSecondButton.setBounds(320, 510, 250, 30);
         answerSecondButton.setFocusPainted(false);
         answerSecondButton.setActionCommand("2");
         answerSecondButton.addActionListener(this);
 
-        answerThirdButton.setBounds(320,550, 250, 30);
+        answerThirdButton.setBounds(320, 550, 250, 30);
         answerThirdButton.setFocusPainted(false);
         answerThirdButton.setActionCommand("3");
         answerThirdButton.addActionListener(this);
@@ -50,7 +51,7 @@ public class FirstQuestion implements Component, ActionListener {
 
     @Override
     public String getName() {
-       return "FirstQuestion";
+        return "FirstQuestion";
     }
 
     @Override
@@ -85,13 +86,13 @@ public class FirstQuestion implements Component, ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "1":
-                mediator.setFirstAnswer(1);
+                mediator.setAnswer(1, 1);
                 break;
             case "2":
-                mediator.setFirstAnswer(2);
+                mediator.setAnswer(1, 2);
                 break;
             case "3":
-                mediator.setFirstAnswer(3);
+                mediator.setAnswer(1, 3);
                 break;
         }
         mediator.nextPage();

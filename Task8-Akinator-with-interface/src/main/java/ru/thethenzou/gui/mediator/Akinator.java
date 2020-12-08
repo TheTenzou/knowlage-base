@@ -1,19 +1,20 @@
 package ru.thethenzou.gui.mediator;
 
 import ru.thethenzou.gui.components.Component;
-import ru.thethenzou.gui.components.FirstQuestion;
-import ru.thethenzou.gui.components.SecondQuestion;
+import ru.thethenzou.gui.components.questions.FirstQuestion;
+import ru.thethenzou.gui.components.questions.FoursQuestion;
+import ru.thethenzou.gui.components.questions.SecondQuestion;
 import ru.thethenzou.gui.components.StartPanel;
 import ru.thethenzou.gui.panel.ImagePanel;
 import ru.thethenzou.models.Character;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Akinator implements Mediator {
 
-    private StartPanel startPanel;
-    private FirstQuestion firstQuestion;
-    private SecondQuestion secondQuestion;
+    List<Component> componentList = new ArrayList<>();
 
     Character character;
 
@@ -22,91 +23,58 @@ public class Akinator implements Mediator {
     @Override
     public void registerComponent(Component component) {
         component.setMediator(this);
+        component.hide();
 
-        switch (component.getName()) {
-            case "StartPenal":
-                startPanel = (StartPanel) component;
-                startPanel.hide();
+        componentList.add(component);
+    }
+
+    @Override
+    public void setAnswer(int question, int answer) {
+        switch (question) {
+            case 1:
+                character.setFirstQuestion(answer);
                 break;
-            case "FirstQuestion":
-                firstQuestion = (FirstQuestion) component;
-                firstQuestion.hide();
+            case 2:
+                character.setSecondQuestion(answer);
                 break;
-            case "SecondQuestion":
-                secondQuestion = (SecondQuestion) component;
-                secondQuestion.hide();
+            case 4:
+                character.setForthQuestion(answer);
+                break;
+            case 5:
+                character.setFifthQuestion(answer);
+                break;
+            case 6:
+                character.setSixthQuestion(answer);
+                break;
+            case 7:
+                character.setSeventhQuestion(answer);
+                break;
+            case 8:
+                character.setEighthQuestion(answer);
+                break;
+            case 9:
+                character.setNinethQuestion(answer);
+                break;
+            case 10:
+                character.setTenthQuestion(answer);
+                break;
+            case 11:
+                character.setElevenQuestion(answer);
                 break;
         }
-
     }
 
-    @Override
-    public void setFirstAnswer(int answer) {
-        System.out.println("First " + answer);
-        character.setFirstQuestion(answer);
-    }
-
-    @Override
-    public void setSecondAnswer(int answer) {
-        System.out.println("Second " + answer);
-        character.setFirstQuestion(answer);
-    }
-
-    @Override
-    public void setFourthAnswer(int answer) {
-
-    }
-
-    @Override
-    public void setFifthAnswer(int answer) {
-
-    }
-
-    @Override
-    public void setSixthAnswer(int answer) {
-
-    }
-
-    @Override
-    public void setSeventhAnswer(int answer) {
-
-    }
-
-    @Override
-    public void setEighthAnswer(int answer) {
-
-    }
-
-    @Override
-    public void setNinethAnswer(int answer) {
-
-    }
-
-    @Override
-    public void setTenthAnswer(int answer) {
-
-    }
-
-    @Override
-    public void setEleventhAnswer(int answer) {
-
-    }
 
     @Override
     public void nextPage() {
-        page++;
-        switch (page) {
-            case 1:
-                startPanel.hide();
-                firstQuestion.show();
-                break;
-            case 2:
-                firstQuestion.hide();
-                secondQuestion.show();
-                break;
-            case 3:
-                secondQuestion.hide();
-                break;
+        if (page + 1 < componentList.size()) {
+            componentList.get(page + 1).show();
+            componentList.get(page).hide();
+            page++;
+        } else {
+            componentList.get(page).hide();
+            componentList.get(0).show();
+            page = 0;
         }
     }
 
@@ -131,10 +99,8 @@ public class Akinator implements Mediator {
 
         character = new Character();
 
-        startPanel.setPenel(panel);
-        firstQuestion.setPenel(panel);
-        secondQuestion.setPenel(panel);
-        startPanel.show();
+        componentList.forEach(component -> component.setPenel(panel));
+        componentList.get(0).show();
         panel.setVisible(true);
         akinator.add(panel);
 

@@ -1,7 +1,7 @@
 package ru.thethenzou.gui;
 
-import ru.thethenzou.gui.components.FirstQuestion;
-import ru.thethenzou.gui.components.SecondQuestion;
+import ru.thethenzou.gui.components.questions.FirstQuestion;
+import ru.thethenzou.gui.components.questions.SecondQuestion;
 import ru.thethenzou.gui.components.StartPanel;
 import ru.thethenzou.gui.mediator.Akinator;
 import ru.thethenzou.gui.mediator.Mediator;

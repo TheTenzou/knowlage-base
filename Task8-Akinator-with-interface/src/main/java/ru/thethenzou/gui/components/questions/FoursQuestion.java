@@ -1,5 +1,6 @@
-package ru.thethenzou.gui.components;
+package ru.thethenzou.gui.components.questions;
 
+import ru.thethenzou.gui.components.Component;
 import ru.thethenzou.gui.mediator.Mediator;
 
 import javax.swing.*;
@@ -7,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SecondQuestion implements Component, ActionListener {
+public class FoursQuestion implements Component, ActionListener {
 
     private Mediator mediator;
 
@@ -17,7 +18,7 @@ public class SecondQuestion implements Component, ActionListener {
     JButton answerSecondButton = new JButton("Нет");
     JButton answerThirdButton = new JButton("Не известно");
 
-    public SecondQuestion() {
+    public FoursQuestion() {
 
         backGround.setBounds(320, 400, 250, 60);
         backGround.setOpaque(true);
@@ -50,7 +51,7 @@ public class SecondQuestion implements Component, ActionListener {
 
     @Override
     public String getName() {
-       return "SecondQuestion";
+       return "FoursQuestion";
     }
 
     @Override
@@ -85,13 +86,13 @@ public class SecondQuestion implements Component, ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "1":
-                mediator.setSecondAnswer(1);
+                mediator.setAnswer(4, 1);
                 break;
             case "2":
-                mediator.setSecondAnswer(2);
+                mediator.setAnswer(4, 2);
                 break;
             case "3":
-                mediator.setSecondAnswer(3);
+                mediator.setAnswer(4, 3);
                 break;
         }
         mediator.nextPage();
