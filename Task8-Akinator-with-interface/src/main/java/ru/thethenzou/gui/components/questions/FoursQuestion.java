@@ -13,7 +13,7 @@ public class FoursQuestion implements Component, ActionListener {
     private Mediator mediator;
 
     JLabel backGround = new JLabel();
-    JLabel label = new JLabel("Ваш персонаж человек? ");
+    JLabel label = new JLabel("Ваш персонаж умеет летать?");
     JButton answerOneButton = new JButton("Да");
     JButton answerSecondButton = new JButton("Нет");
     JButton answerThirdButton = new JButton("Не известно");
