@@ -8,17 +8,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FoursQuestion implements Component, ActionListener {
+public class EighthQuestion implements Component, ActionListener {
 
     private Mediator mediator;
 
     JLabel backGround = new JLabel();
-    JLabel label = new JLabel("Ваш персонаж умеет летать?");
-    JButton answerOneButton = new JButton("Да");
-    JButton answerSecondButton = new JButton("Нет");
-    JButton answerThirdButton = new JButton("Не известно");
+    JLabel label = new JLabel("Сколько лет вашему персонажу?");
+    JButton answerOneButton = new JButton("Меньше 30 лет");
+    JButton answerSecondButton = new JButton("меньше 55 лет");
+    JButton answerThirdButton = new JButton("больше 55 лет");
+    JButton answerFourthButoon = new JButton("ДА!");
+    JButton answerFifthButoon = new JButton("Не известно");
 
-    public FoursQuestion() {
+    public EighthQuestion() {
 
         backGround.setBounds(320, 390, 250, 60);
         backGround.setOpaque(true);
@@ -42,6 +44,16 @@ public class FoursQuestion implements Component, ActionListener {
         answerThirdButton.setFocusPainted(false);
         answerThirdButton.setActionCommand("3");
         answerThirdButton.addActionListener(this);
+
+        answerFourthButoon.setBounds(320,580, 250, 30);
+        answerFourthButoon.setFocusPainted(false);
+        answerFourthButoon.setActionCommand("3");
+        answerFourthButoon.addActionListener(this);
+
+        answerFifthButoon.setBounds(320,620, 250, 30);
+        answerFifthButoon.setFocusPainted(false);
+        answerFifthButoon.setActionCommand("3");
+        answerFifthButoon.addActionListener(this);
     }
 
     @Override
@@ -49,12 +61,15 @@ public class FoursQuestion implements Component, ActionListener {
         this.mediator = mediator;
     }
 
+
     @Override
     public void setPenel(JPanel panel) {
         panel.add(label);
         panel.add(answerOneButton);
         panel.add(answerSecondButton);
         panel.add(answerThirdButton);
+        panel.add(answerFourthButoon);
+        panel.add(answerFifthButoon);
         panel.add(backGround);
     }
 
@@ -65,6 +80,8 @@ public class FoursQuestion implements Component, ActionListener {
         answerOneButton.setVisible(true);
         answerSecondButton.setVisible(true);
         answerThirdButton.setVisible(true);
+        answerFourthButoon.setVisible(true);
+        answerFifthButoon.setVisible(true);
     }
 
     @Override
@@ -74,6 +91,8 @@ public class FoursQuestion implements Component, ActionListener {
         answerOneButton.setVisible(false);
         answerSecondButton.setVisible(false);
         answerThirdButton.setVisible(false);
+        answerFourthButoon.setVisible(false);
+        answerFifthButoon.setVisible(false);
     }
 
 
@@ -81,13 +100,13 @@ public class FoursQuestion implements Component, ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "1":
-                mediator.setAnswer(4, 1);
+                mediator.setAnswer(6, 1);
                 break;
             case "2":
-                mediator.setAnswer(4, 2);
+                mediator.setAnswer(6, 2);
                 break;
             case "3":
-                mediator.setAnswer(4, 3);
+                mediator.setAnswer(6, 3);
                 break;
         }
         mediator.nextPage();

@@ -19,20 +19,20 @@ public class SeventhQuestion implements Component, ActionListener {
 
     public SeventhQuestion() {
 
-        backGround.setBounds(320, 400, 250, 60);
+        backGround.setBounds(320, 390, 250, 60);
         backGround.setOpaque(true);
         backGround.setBackground(new Color(250,183,60));
 
         label.setFont(new Font("Serif", Font.PLAIN, 16));
         Dimension labelSize = label.getPreferredSize();
-        label.setBounds(445 - labelSize.width/2,420,labelSize.width,labelSize.height);
+        label.setBounds(445 - labelSize.width/2,410,labelSize.width,labelSize.height);
 
-        answerOneButton.setBounds(320,470, 250, 30);
+        answerOneButton.setBounds(320,460, 250, 30);
         answerOneButton.setFocusPainted(false);
         answerOneButton.setActionCommand("1");
         answerOneButton.addActionListener(this);
 
-        answerSecondButton.setBounds(320,510, 250, 30);
+        answerSecondButton.setBounds(320,500, 250, 30);
         answerSecondButton.setFocusPainted(false);
         answerSecondButton.setActionCommand("2");
         answerSecondButton.addActionListener(this);
