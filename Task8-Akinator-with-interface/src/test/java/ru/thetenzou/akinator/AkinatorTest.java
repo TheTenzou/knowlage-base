@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.thethenzou.akinator.Akinator;
-import ru.thethenzou.character.Character;
+import ru.thethenzou.models.Character;
 
 import java.io.*;
 import java.util.Arrays;

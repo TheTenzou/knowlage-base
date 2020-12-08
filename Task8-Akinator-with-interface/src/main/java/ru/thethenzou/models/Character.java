@@ -1,4 +1,4 @@
-package ru.thethenzou.character;
+package ru.thethenzou.models;
 
 import java.util.Objects;
 

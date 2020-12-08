@@ -2,9 +2,8 @@ package ru.thethenzou.akinator;
 
 import org.jpl7.*;
 import org.jpl7.Integer;
-import ru.thethenzou.character.Character;
+import ru.thethenzou.models.Character;
 
-import java.util.Map;
 import java.util.Optional;
 import java.util.Properties;
 
@@ -120,7 +119,7 @@ public class Akinator {
         saveQ10.hasSolution();
         Query saveQ11 = new Query("save_q11('" + properties.getProperty("q11") + "')");
         saveQ11.hasSolution();
-        
+
         loadPredicats();
     }
 }
