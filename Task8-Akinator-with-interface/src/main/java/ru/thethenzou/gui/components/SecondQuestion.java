@@ -7,17 +7,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FirstQuestion implements Component, ActionListener {
+public class SecondQuestion implements Component, ActionListener {
 
     private Mediator mediator;
 
     JLabel backGround = new JLabel();
-    JLabel label = new JLabel("Какого пола ваш персонаж?");
-    JButton answerOneButton = new JButton("Мужской");
-    JButton answerSecondButton = new JButton("Женский");
-    JButton answerThirdButton = new JButton("Другое");
+    JLabel label = new JLabel("Ваш персонаж человек? ");
+    JButton answerOneButton = new JButton("Да");
+    JButton answerSecondButton = new JButton("Нет");
+    JButton answerThirdButton = new JButton("Не известно");
 
-    public FirstQuestion() {
+    public SecondQuestion() {
 
         backGround.setBounds(320, 400, 250, 60);
         backGround.setOpaque(true);
@@ -50,7 +50,7 @@ public class FirstQuestion implements Component, ActionListener {
 
     @Override
     public String getName() {
-       return "FirstQuestion";
+       return "SecondQuestion";
     }
 
     @Override
@@ -85,13 +85,13 @@ public class FirstQuestion implements Component, ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "1":
-                mediator.setFirstAnswer(1);
+                mediator.setSecondAnswer(1);
                 break;
             case "2":
-                mediator.setFirstAnswer(2);
+                mediator.setSecondAnswer(2);
                 break;
             case "3":
-                mediator.setFirstAnswer(3);
+                mediator.setSecondAnswer(3);
                 break;
         }
         mediator.nextPage();

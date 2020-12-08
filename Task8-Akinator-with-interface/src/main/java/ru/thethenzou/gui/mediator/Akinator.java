@@ -2,6 +2,7 @@ package ru.thethenzou.gui.mediator;
 
 import ru.thethenzou.gui.components.Component;
 import ru.thethenzou.gui.components.FirstQuestion;
+import ru.thethenzou.gui.components.SecondQuestion;
 import ru.thethenzou.gui.components.StartPanel;
 import ru.thethenzou.gui.panel.ImagePanel;
 import ru.thethenzou.models.Character;
@@ -12,6 +13,7 @@ public class Akinator implements Mediator {
 
     private StartPanel startPanel;
     private FirstQuestion firstQuestion;
+    private SecondQuestion secondQuestion;
 
     Character character;
 
@@ -30,6 +32,10 @@ public class Akinator implements Mediator {
                 firstQuestion = (FirstQuestion) component;
                 firstQuestion.hide();
                 break;
+            case "SecondQuestion":
+                secondQuestion = (SecondQuestion) component;
+                secondQuestion.hide();
+                break;
         }
 
     }
@@ -42,7 +48,8 @@ public class Akinator implements Mediator {
 
     @Override
     public void setSecondAnswer(int answer) {
-
+        System.out.println("Second " + answer);
+        character.setFirstQuestion(answer);
     }
 
     @Override
@@ -95,6 +102,10 @@ public class Akinator implements Mediator {
                 break;
             case 2:
                 firstQuestion.hide();
+                secondQuestion.show();
+                break;
+            case 3:
+                secondQuestion.hide();
                 break;
         }
     }
@@ -122,6 +133,7 @@ public class Akinator implements Mediator {
 
         startPanel.setPenel(panel);
         firstQuestion.setPenel(panel);
+        secondQuestion.setPenel(panel);
         startPanel.show();
         panel.setVisible(true);
         akinator.add(panel);
