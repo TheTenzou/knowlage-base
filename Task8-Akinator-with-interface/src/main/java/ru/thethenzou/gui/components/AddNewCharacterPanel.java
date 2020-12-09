@@ -76,7 +76,6 @@ public class AddNewCharacterPanel implements Component, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         mediator.setName(answer.getText());
-//        System.out.println(answer.getText());
         mediator.startAgain();
     }
 }
