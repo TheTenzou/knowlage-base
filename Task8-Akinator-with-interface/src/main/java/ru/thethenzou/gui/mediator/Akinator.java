@@ -1,5 +1,6 @@
 package ru.thethenzou.gui.mediator;
 
+import ru.thethenzou.akinator.AkinatorProlog;
 import ru.thethenzou.gui.components.Component;
 import ru.thethenzou.gui.panel.ImagePanel;
 import ru.thethenzou.models.Character;
@@ -10,11 +11,16 @@ import java.util.List;
 
 public class Akinator implements Mediator {
 
-    List<Component> componentList = new ArrayList<>();
+    private List<Component> componentList = new ArrayList<>();
+    private AkinatorProlog akinatorProlog;
 
-    Character character;
+    private Character character;
 
     private int page = 0;
+
+    public Akinator(AkinatorProlog akinatorProlog) {
+        this.akinatorProlog = akinatorProlog;
+    }
 
     @Override
     public void registerComponent(Component component) {
@@ -66,6 +72,7 @@ public class Akinator implements Mediator {
                 break;
             case 11:
                 character.setElevenQuestion(answer);
+                akinatorProlog.guess(character);
                 componentList.get(10).hide();
                 componentList.get(11).show();
                 break;
