@@ -41,7 +41,6 @@ public class Akinator implements Mediator {
 
     @Override
     public void setAnswer(int question, int answer) {
-        System.out.println("Question " + question + " answer " + answer);
         switch (question) {
             case 1:
                 character.setFirstQuestion(answer);
