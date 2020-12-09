@@ -11,7 +11,8 @@ public class AnswerPanel implements Component, ActionListener {
 
     private Mediator mediator;
     JLabel backGround = new JLabel();
-    JLabel label = new JLabel("Вы загодали ");
+    JLabel label = new JLabel("Вы загодали:");
+    JLabel answerLabel = new JLabel("Вы загодали:");
     JButton button = new JButton("Начать игру заново.");
 
     public AnswerPanel() {
@@ -22,7 +23,9 @@ public class AnswerPanel implements Component, ActionListener {
 
         label.setFont(new Font("Serif", Font.PLAIN, 16));
         Dimension labelSize = label.getPreferredSize();
-        label.setBounds(410,460,labelSize.width,labelSize.height);
+        label.setBounds(460 - labelSize.width/2,450,labelSize.width,labelSize.height);
+
+        answerLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
         button.setFont(new Font("Serif", Font.PLAIN, 14));
         Dimension buttonSize = button.getPreferredSize();
@@ -39,16 +42,18 @@ public class AnswerPanel implements Component, ActionListener {
     @Override
     public void setPenel(JPanel panel) {
         panel.add(label);
+        panel.add(answerLabel);
         panel.add(button);
         panel.add(backGround);
     }
 
     @Override
     public void show() {
-        label.setText(label.getText() + mediator.getName());
-        Dimension labelSize = label.getPreferredSize();
-        label.setBounds(410,460,labelSize.width,labelSize.height);
+        answerLabel.setText(mediator.getName());
+        Dimension labelSize = answerLabel.getPreferredSize();
+        answerLabel.setBounds(460 - labelSize.width/2,470,labelSize.width,labelSize.height);
         label.setVisible(true);
+        answerLabel.setVisible(true);
         button.setVisible(true);
         backGround.setVisible(true);
     }
@@ -56,6 +61,7 @@ public class AnswerPanel implements Component, ActionListener {
     @Override
     public void hide() {
         label.setVisible(false);
+        answerLabel.setVisible(false);
         button.setVisible(false);
         backGround.setVisible(false);
     }
