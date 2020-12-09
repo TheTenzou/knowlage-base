@@ -1,10 +1,6 @@
 package ru.thethenzou.gui.mediator;
 
 import ru.thethenzou.gui.components.Component;
-import ru.thethenzou.gui.components.questions.FirstQuestion;
-import ru.thethenzou.gui.components.questions.FoursQuestion;
-import ru.thethenzou.gui.components.questions.SecondQuestion;
-import ru.thethenzou.gui.components.StartPanel;
 import ru.thethenzou.gui.panel.ImagePanel;
 import ru.thethenzou.models.Character;
 
