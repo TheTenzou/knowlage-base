@@ -94,7 +94,9 @@ public class Akinator implements Mediator {
 
     @Override
     public void startAgain() {
-
+        page = 0;
+        componentList.get(11).hide();
+        componentList.get(0).show();
     }
 
     @Override

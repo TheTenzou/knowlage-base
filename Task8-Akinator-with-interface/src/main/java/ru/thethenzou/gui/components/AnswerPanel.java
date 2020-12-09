@@ -68,6 +68,6 @@ public class AnswerPanel implements Component, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        mediator.startAgain();
     }
 }
