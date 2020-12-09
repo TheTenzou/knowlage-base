@@ -25,6 +25,15 @@ public class Akinator implements Mediator {
     }
 
     @Override
+    public String getName() {
+        if (character.getName() != null) {
+            return character.getName();
+        } else {
+            return "error";
+        }
+    }
+
+    @Override
     public void setAnswer(int question, int answer) {
         System.out.println("Question " + question + " answer " + answer);
         switch (question) {
@@ -57,10 +66,11 @@ public class Akinator implements Mediator {
                 break;
             case 11:
                 character.setElevenQuestion(answer);
+                componentList.get(10).hide();
+                componentList.get(11).show();
                 break;
         }
     }
-
 
     @Override
     public void nextPage() {
@@ -73,11 +83,6 @@ public class Akinator implements Mediator {
             componentList.get(0).show();
             page = 0;
         }
-    }
-
-    @Override
-    public void setCharacterName(String name) {
-
     }
 
     @Override

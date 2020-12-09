@@ -7,16 +7,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StartPanel implements Component, ActionListener {
+public class AnswerPanel implements Component, ActionListener {
 
     private Mediator mediator;
     JLabel backGround = new JLabel();
-    JLabel label = new JLabel("Начать игру?");
-    JButton button = new JButton("Начать игру.");
+    JLabel label = new JLabel("Вы загодали ");
+    JButton button = new JButton("Начать игру заново.");
 
-    public StartPanel() {
+    public AnswerPanel() {
 
-        backGround.setBounds(380, 440, 150, 60);
+        backGround.setBounds(360, 440, 200, 60);
         backGround.setOpaque(true);
         backGround.setBackground(new Color(250,183,60));
 
@@ -26,7 +26,7 @@ public class StartPanel implements Component, ActionListener {
 
         button.setFont(new Font("Serif", Font.PLAIN, 14));
         Dimension buttonSize = button.getPreferredSize();
-        button.setBounds(400,540, buttonSize.width, buttonSize.height);
+        button.setBounds(360,540, 200, buttonSize.height);
         button.setFocusPainted(false);
         button.addActionListener(this);
     }
@@ -45,6 +45,9 @@ public class StartPanel implements Component, ActionListener {
 
     @Override
     public void show() {
+        label.setText(label.getText() + mediator.getName());
+        Dimension labelSize = label.getPreferredSize();
+        label.setBounds(410,460,labelSize.width,labelSize.height);
         label.setVisible(true);
         button.setVisible(true);
         backGround.setVisible(true);
@@ -59,6 +62,6 @@ public class StartPanel implements Component, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        mediator.nextPage();
+
     }
 }

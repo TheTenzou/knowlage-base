@@ -1,5 +1,6 @@
 package ru.thethenzou.gui;
 
+import ru.thethenzou.gui.components.AnswerPanel;
 import ru.thethenzou.gui.components.questions.*;
 import ru.thethenzou.gui.components.StartPanel;
 import ru.thethenzou.gui.mediator.Akinator;
@@ -22,6 +23,7 @@ public class Demo {
         mediator.registerComponent(new NinethQuestion());
         mediator.registerComponent(new TenthQuestion());
         mediator.registerComponent(new EleventhQuestion());
+        mediator.registerComponent(new AnswerPanel());
 
         mediator.createGUI();
     }
