@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * Класс для взаимодействия с акинатором написанным на прологе.
  */
-public class Akinator {
+public class AkinatorProlog {
 
     /**
      * Свойства.
@@ -22,7 +22,7 @@ public class Akinator {
      *
      * @param properties Свойства
      */
-    public Akinator(Properties properties) {
+    public AkinatorProlog(Properties properties) {
         this.properties = properties;
         Query consult = new Query("consult('" + properties.getProperty("prolog.path") + "')");
         consult.hasMoreSolutions();

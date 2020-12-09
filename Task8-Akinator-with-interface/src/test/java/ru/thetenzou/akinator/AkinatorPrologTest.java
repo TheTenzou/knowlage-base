@@ -4,7 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.thethenzou.akinator.Akinator;
+import ru.thethenzou.akinator.AkinatorProlog;
 import ru.thethenzou.models.Character;
 
 import java.io.*;
@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Properties;
 
-public class AkinatorTest {
+public class AkinatorPrologTest {
 
     @AfterAll
     public static void cleanUp() throws IOException {
@@ -30,11 +30,11 @@ public class AkinatorTest {
         try (InputStream inputStream = new FileInputStream("src/test/resources/application.properties")) {
             properties.load(inputStream);
         }
-        Akinator akinator = new Akinator(properties);
+        AkinatorProlog akinatorProlog = new AkinatorProlog(properties);
         Character character = new Character(
                 1,1,1,1,1,
                 1,1,1,1,1);
-        Optional<Character> result = akinator.guess(character);
+        Optional<Character> result = akinatorProlog.guess(character);
         Assertions.assertTrue(result.isPresent());
 
         character.setName("test");
@@ -49,11 +49,11 @@ public class AkinatorTest {
         try (InputStream inputStream = new FileInputStream("src/test/resources/application.properties")) {
             properties.load(inputStream);
         }
-        Akinator akinator = new Akinator(properties);
+        AkinatorProlog akinatorProlog = new AkinatorProlog(properties);
         Character character = new Character(
                 1,1,1,1,1,
                 1,1,1,0,0);
-        Optional<Character> result = akinator.guess(character);
+        Optional<Character> result = akinatorProlog.guess(character);
         Assertions.assertTrue(result.isEmpty());
     }
 
@@ -64,20 +64,17 @@ public class AkinatorTest {
         try (InputStream inputStream = new FileInputStream("src/test/resources/application.properties")) {
             properties.load(inputStream);
         }
-        Akinator akinator = new Akinator(properties);
+        AkinatorProlog akinatorProlog = new AkinatorProlog(properties);
         Character expectedCharacter = new Character(
                 "save",
                 1,1,1,1,1,
                 1,1,1,1,0);
-        akinator.save(expectedCharacter);
+        akinatorProlog.save(expectedCharacter);
 
         Character character = new Character(
                 1,1,1,1,1,
                 1,1,1,1,0);
 
-        Optional<Character> result = akinator.guess(character);
-
-        System.out.println(result.get().getName());
-
+        Optional<Character> result = akinatorProlog.guess(character);
     }
 }
