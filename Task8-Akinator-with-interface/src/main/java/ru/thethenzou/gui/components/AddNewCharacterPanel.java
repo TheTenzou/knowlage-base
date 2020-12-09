@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AnswerPanel implements Component, ActionListener {
+public class AddNewCharacterPanel implements Component, ActionListener {
 
     private Mediator mediator;
     JLabel backGround = new JLabel();
@@ -15,7 +15,7 @@ public class AnswerPanel implements Component, ActionListener {
     JLabel answerLabel = new JLabel("");
     JButton button = new JButton("Начать игру заново.");
 
-    public AnswerPanel() {
+    public AddNewCharacterPanel() {
 
         backGround.setBounds(360, 440, 200, 60);
         backGround.setOpaque(true);
