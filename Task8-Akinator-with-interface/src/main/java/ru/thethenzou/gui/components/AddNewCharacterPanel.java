@@ -11,9 +11,10 @@ public class AddNewCharacterPanel implements Component, ActionListener {
 
     private Mediator mediator;
     JLabel backGround = new JLabel();
-    JLabel label = new JLabel("Вы загодали:");
-    JLabel answerLabel = new JLabel("");
-    JButton button = new JButton("Начать игру заново.");
+    JLabel label = new JLabel("Я не знаю такого персонажа.");
+    JLabel label2 = new JLabel("Воведите его имя.");
+    JTextField answer = new JTextField();
+    JButton button = new JButton("Сохранить");
 
     public AddNewCharacterPanel() {
 
@@ -25,7 +26,13 @@ public class AddNewCharacterPanel implements Component, ActionListener {
         Dimension labelSize = label.getPreferredSize();
         label.setBounds(460 - labelSize.width/2,450,labelSize.width,labelSize.height);
 
-        answerLabel.setFont(new Font("Serif", Font.PLAIN, 16));
+        label2.setFont(new Font("Serif", Font.PLAIN, 16));
+        Dimension labelSize2 = label2.getPreferredSize();
+        label2.setBounds(460 - labelSize2.width/2,470,labelSize2.width,labelSize2.height);
+
+        answer.setFont(new Font("Serif", Font.PLAIN, 14));
+        Dimension textEditSize = button.getPreferredSize();
+        answer.setBounds(360,510, 200, textEditSize.height);
 
         button.setFont(new Font("Serif", Font.PLAIN, 14));
         Dimension buttonSize = button.getPreferredSize();
@@ -42,18 +49,17 @@ public class AddNewCharacterPanel implements Component, ActionListener {
     @Override
     public void setPenel(JPanel panel) {
         panel.add(label);
-        panel.add(answerLabel);
+        panel.add(label2);
+        panel.add(answer);
         panel.add(button);
         panel.add(backGround);
     }
 
     @Override
     public void show() {
-        answerLabel.setText(mediator.getName());
-        Dimension labelSize = answerLabel.getPreferredSize();
-        answerLabel.setBounds(460 - labelSize.width/2,470,labelSize.width,labelSize.height);
         label.setVisible(true);
-        answerLabel.setVisible(true);
+        label2.setVisible(true);
+        answer.setVisible(true);
         button.setVisible(true);
         backGround.setVisible(true);
     }
@@ -61,13 +67,16 @@ public class AddNewCharacterPanel implements Component, ActionListener {
     @Override
     public void hide() {
         label.setVisible(false);
-        answerLabel.setVisible(false);
+        label2.setVisible(false);
+        answer.setVisible(false);
         button.setVisible(false);
         backGround.setVisible(false);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        mediator.setName(answer.getText());
+//        System.out.println(answer.getText());
         mediator.startAgain();
     }
 }

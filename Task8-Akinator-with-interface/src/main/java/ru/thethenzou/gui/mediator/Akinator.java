@@ -8,6 +8,7 @@ import ru.thethenzou.models.Character;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Akinator implements Mediator {
 
@@ -71,11 +72,21 @@ public class Akinator implements Mediator {
                 break;
             case 11:
                 character.setElevenQuestion(answer);
-                akinatorProlog.guess(character);
+                Optional<Character> guesedCharacter = akinatorProlog.guess(character);
                 componentList.get(10).hide();
-                componentList.get(11).show();
+                if (guesedCharacter.isPresent()) {
+                    componentList.get(11).show();
+                } else {
+                    componentList.get(12).show();
+                }
                 break;
         }
+    }
+
+    @Override
+    public void setName(String name) {
+        character.setName(name);
+        akinatorProlog.save(character);
     }
 
     @Override
@@ -95,6 +106,7 @@ public class Akinator implements Mediator {
     public void startAgain() {
         page = 0;
         componentList.get(11).hide();
+        componentList.get(12).hide();
         componentList.get(0).show();
     }
 

@@ -1,6 +1,7 @@
 package ru.thethenzou.gui;
 
 import ru.thethenzou.akinator.AkinatorProlog;
+import ru.thethenzou.gui.components.AddNewCharacterPanel;
 import ru.thethenzou.gui.components.AnswerPanel;
 import ru.thethenzou.gui.components.StartPanel;
 import ru.thethenzou.gui.components.questions.*;
@@ -32,6 +33,7 @@ public class Demo {
         mediator.registerComponent(new TenthQuestion());
         mediator.registerComponent(new EleventhQuestion());
         mediator.registerComponent(new AnswerPanel());
+        mediator.registerComponent(new AddNewCharacterPanel());
 
         mediator.createGUI();
     }
