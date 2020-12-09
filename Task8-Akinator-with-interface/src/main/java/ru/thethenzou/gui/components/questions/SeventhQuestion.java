@@ -72,17 +72,7 @@ public class SeventhQuestion implements Component, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
-            case "1":
-                mediator.setAnswer(7, 1);
-                break;
-            case "2":
-                mediator.setAnswer(7, 2);
-                break;
-            case "3":
-                mediator.setAnswer(7, 3);
-                break;
-        }
+        mediator.setAnswer(7, Integer.parseInt(e.getActionCommand()));
         mediator.nextPage();
     }
 }

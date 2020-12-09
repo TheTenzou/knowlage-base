@@ -47,12 +47,12 @@ public class EighthQuestion implements Component, ActionListener {
 
         answerFourthButoon.setBounds(320,580, 250, 30);
         answerFourthButoon.setFocusPainted(false);
-        answerFourthButoon.setActionCommand("3");
+        answerFourthButoon.setActionCommand("4");
         answerFourthButoon.addActionListener(this);
 
         answerFifthButoon.setBounds(320,620, 250, 30);
         answerFifthButoon.setFocusPainted(false);
-        answerFifthButoon.setActionCommand("3");
+        answerFifthButoon.setActionCommand("5");
         answerFifthButoon.addActionListener(this);
     }
 
@@ -98,17 +98,7 @@ public class EighthQuestion implements Component, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
-            case "1":
-                mediator.setAnswer(6, 1);
-                break;
-            case "2":
-                mediator.setAnswer(6, 2);
-                break;
-            case "3":
-                mediator.setAnswer(6, 3);
-                break;
-        }
+        mediator.setAnswer(8, Integer.parseInt(e.getActionCommand()));
         mediator.nextPage();
     }
 }

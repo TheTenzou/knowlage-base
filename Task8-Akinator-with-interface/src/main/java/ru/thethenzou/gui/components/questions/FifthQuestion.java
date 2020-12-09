@@ -80,17 +80,7 @@ public class FifthQuestion implements Component, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
-            case "1":
-                mediator.setAnswer(5, 1);
-                break;
-            case "2":
-                mediator.setAnswer(5, 2);
-                break;
-            case "3":
-                mediator.setAnswer(5, 3);
-                break;
-        }
+        mediator.setAnswer(5, Integer.parseInt(e.getActionCommand()));
         mediator.nextPage();
     }
 }

@@ -79,17 +79,7 @@ public class FirstQuestion implements Component, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
-            case "1":
-                mediator.setAnswer(1, 1);
-                break;
-            case "2":
-                mediator.setAnswer(1, 2);
-                break;
-            case "3":
-                mediator.setAnswer(1, 3);
-                break;
-        }
+        mediator.setAnswer(1, Integer.parseInt(e.getActionCommand()));
         mediator.nextPage();
     }
 }

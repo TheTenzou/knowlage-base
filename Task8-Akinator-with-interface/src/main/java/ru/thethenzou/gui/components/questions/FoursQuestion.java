@@ -79,17 +79,7 @@ public class FoursQuestion implements Component, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
-            case "1":
-                mediator.setAnswer(4, 1);
-                break;
-            case "2":
-                mediator.setAnswer(4, 2);
-                break;
-            case "3":
-                mediator.setAnswer(4, 3);
-                break;
-        }
+        mediator.setAnswer(4, Integer.parseInt(e.getActionCommand()));
         mediator.nextPage();
     }
 }
