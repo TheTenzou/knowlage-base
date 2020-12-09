@@ -21,6 +21,7 @@ public class Demo {
         mediator.registerComponent(new EighthQuestion());
         mediator.registerComponent(new NinethQuestion());
         mediator.registerComponent(new TenthQuestion());
+        mediator.registerComponent(new EleventhQuestion());
 
         mediator.createGUI();
     }
